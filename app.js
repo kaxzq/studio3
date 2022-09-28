@@ -30,9 +30,20 @@ const updatePage = async () => {
 
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
   // For example, find "name of all fruits whose sugar > 15",
-
+  const filterArray = fruitsArray.filter((item) => {
+    return item.nutritions.sugar > 15;
+  });
+  const fruits = filterArray.map((item) => {return item.name});
+  console.log(fruits);
+  var allF = "";
+  fruits.forEach(fruit => allF += fruit);
+  
   // TODO: Create a new HTML element to display your data
-
+  const newElement = document.createElement('div');
+  newElement.innerHTML = allF;
+  // Append the new element to an existing part of the webpage
+  const existingElement = document.getElementById('cs1300-gallery');
+  existingElement.append(newElement);
   // TODO: Append your new element to the page
 
 }
